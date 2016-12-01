@@ -1,2 +1,4 @@
 # Chaprasan
-Potential Senior Research Project
+This is the beginnings of what could become a senior research project.
+
+###Readme will be updated later!
