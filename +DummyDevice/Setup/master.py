@@ -1,1 +1,4 @@
-print("\nRunning master script!")
+import os
+print("\nRunning dummy device script!")
+os.system('sudo apt-get install avahi-daemon -y')
+
