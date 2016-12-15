@@ -1,10 +1,10 @@
 import os
 
-print("\n\n---Installing Avahi---\n\n")
+print("\n---Installing Avahi---\n")
 os.system('sudo apt-get install avahi-daemon -y')
 os.system('sudo systemctl enable avahi-daemon; sudo systemctl stop avahi-daemon')
 
-print("\n\n---Configuring installation file---\n\n")
+print("\n---Configuring installation file---\n")
 DeviceName = os.popen('cd .. && basename "$PWD"').read()[1:].lower()
 
 print('Removing existing config...')
@@ -20,5 +20,5 @@ print('Writing everything back...')
 with open('/etc/avahi/avahi-daemon.conf', 'w') as file:
     file.writelines( data )
 
-print('\n\n---Restarting Avahi---\n\n')
+print('\n---Restarting Avahi---\n')
 os.system('sudo systemctl start avahi-daemon')

@@ -15,8 +15,11 @@ for dev in range(0, len(dirs)):
 	print(str(dev+1) + ") " + str(dirs[dev])[1:])
 
 def pickDevice():
-	user = input("\nEnter a number from 1 to " + str(len(dirs)) + ". (-1 to quit): ")
-	if(int(user) == -1):
+	user = raw_input("\nEnter a number from 1 to " + str(len(dirs)) + ". (-1 to quit): ")
+	if(user == ''):
+		print("Invalid Input")
+		return pickDevice()
+	elif(int(user) == -1):
 		print("Quitting")
 		sys.exit()
 	elif(int(user) < 1 or int(user) > len(dirs)):
