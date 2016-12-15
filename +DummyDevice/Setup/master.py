@@ -14,8 +14,7 @@ os.system('rm -Rf /etc/avahi/* && cp ./avahi-daemon.conf /etc/avahi/')
 with open('/etc/avahi/avahi-daemon.conf', 'r') as file:
     data = file.readlines()
 
-print(data[21])
-data[21] = 'host-name=' + DeviceName + '\n'
+data[21] = 'host-name=' + DeviceName
 
 # and write everything back
 with open('/etc/avahi/avahi-daemon.conf', 'w') as file:
