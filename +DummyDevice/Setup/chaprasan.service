@@ -1,0 +1,7 @@
+[Unit]
+Description=Chaprasan IOT Scripts
+
+[Service]
+WorkingDirectory=/srv/chaprasan
+ExecStart=/srv/chaprasan/startup.sh
+User=root
