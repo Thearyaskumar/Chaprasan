@@ -1,5 +1,19 @@
 import os
 import subprocess
+import socket
+import sys
+
+#We have to setup the nsswitch.conf:
+print("\n---Configuring nsswitch.conf")
+print('Reading the config...')
+with open('/etc/nsswitch.conf', 'r') as file:
+    dat = file.readlines()
+
+dat[11] = 'hosts:          files mdns4_minimal mdns4 dns\n'
+
+print('Writing everything back...')
+with open('/etc/nsswitch.conf', 'w') as file:
+    file.writelines( dat )
 
 print("\n---Installing Avahi---\n")
 os.system('sudo apt-get install avahi-daemon -y')
