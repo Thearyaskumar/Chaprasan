@@ -52,3 +52,6 @@ os.system('sudo systemctl enable chaprasan.service')
 
 print('\n---Restarting Service---\n')
 os.system('sudo systemctl restart chaprasan.service')
+
+print('\n---Restarting---\n')
+os.system('sudo reboot')
