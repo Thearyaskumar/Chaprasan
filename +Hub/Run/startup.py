@@ -2,6 +2,8 @@ import os
 import socket
 import sys
 
+
+##THIS WHOLE SCRIPT NEEDS TO BE REDONE!
 print("\n---Checking for other Hub!---")
 try:
     socket.gethostbyname('hub.local')
@@ -11,3 +13,4 @@ except socket.error:
     print("Hub not found. Good to go!")
 
 os.system('sudo systemctl enable avahi-daemon && sudo systemctl start avahi-daemon')
+
