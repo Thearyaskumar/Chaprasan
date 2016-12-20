@@ -3,5 +3,5 @@ Description=Chaprasan IOT Scripts
 
 [Service]
 WorkingDirectory=/srv/chaprasan
-ExecStart=/srv/chaprasan/startup.sh
+ExecStart=/usr/bin/python /srv/chaprasan/startup.py
 User=root
