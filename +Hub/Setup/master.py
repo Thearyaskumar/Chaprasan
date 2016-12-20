@@ -35,9 +35,6 @@ print('Writing everything back...')
 with open('/etc/avahi/avahi-daemon.conf', 'w') as file:
     file.writelines( data )
 
-print('\n---Restarting Avahi---\n')
-os.system('sudo systemctl start avahi-daemon')
-
 print('\n---Copying Runfiles---\n')
 os.system('rm -Rf /srv/chaprasan')
 os.system('mkdir /srv/chaprasan && cp ../Run/* /srv/chaprasan/ && chmod +x /srv/chaprasan/startup.py && chown root /srv/chaprasan')
