@@ -1,16 +1,11 @@
-import os
-import socket
-import sys
+import os, sys, subprocess, time
 
-
-##THIS WHOLE SCRIPT NEEDS TO BE REDONE!
-print("\n---Checking for other Hub!---")
-try:
-    socket.gethostbyname('hub.local')
-    print("Other hub found. Exiting...")
+print("Checking for other hub")
+myips = subprocess.check_output('hostname -I', shell=True).split()
+if not any('hub.local' in subprocess.check_output('avahi-resolve-address ' + ip, shell=True) for ip in myips):
+    print('Found another hub')
     sys.exit(1)
-except socket.error:
-    print("Hub not found. Good to go!")
+print('No other hub found')
 
-os.system('sudo systemctl enable avahi-daemon && sudo systemctl start avahi-daemon')
-
+print('Starting Flask Server')
+os.system('export FLASK_APP=flaskServer.py && flask run --host=0.0.0.0')

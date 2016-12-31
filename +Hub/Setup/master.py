@@ -16,7 +16,7 @@ with open('/etc/nsswitch.conf', 'w') as file:
     file.writelines( dat )
 
 print("\n---Installing Avahi---\n")
-os.system('sudo apt-get install avahi-daemon -y')
+os.system('sudo apt-get install avahi-daemon -y; sudo apt install avahi-utils -y')
 os.system('sudo systemctl enable avahi-daemon; sudo systemctl stop avahi-daemon')
 
 print("\n---Configuring installation file---\n")
@@ -38,6 +38,9 @@ with open('/etc/avahi/avahi-daemon.conf', 'w') as file:
 print('\n---Copying Runfiles---\n')
 os.system('rm -Rf /srv/chaprasan')
 os.system('mkdir /srv/chaprasan && cp ../Run/* /srv/chaprasan/ && chmod +x /srv/chaprasan/startup.py && chown root /srv/chaprasan')
+
+print('\n---Installing Flask---\n')
+os.system('sudo apt install python-pip -y && sudo pip install Flask && sudo pip install requests')
 
 print('\n---Installing Service---\n')
 
