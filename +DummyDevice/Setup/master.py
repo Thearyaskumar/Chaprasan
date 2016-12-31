@@ -54,7 +54,7 @@ print('\n---Restarting Service---\n')
 os.system('sudo systemctl restart chaprasan.service')
 
 print('\n---Installing Flask---\n')
-os.system('sudo apt install python-pip -y && sudo pip install Flask')
+os.system('sudo apt install python-pip -y && sudo pip install Flask && sudo pip install requests')
 
 print('\n---Restarting---\n')
 os.system('sudo reboot')

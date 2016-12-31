@@ -8,4 +8,5 @@ os.system('touch ' + os.path.dirname(os.path.realpath(sys.argv[0])) + '/../state
 with open(os.path.dirname(os.path.realpath(sys.argv[0])) + "/../states/dummy", "w") as text_file:
     text_file.write(sys.argv[1])
 
+print('Successfully added data')
 sys.exit(0)
