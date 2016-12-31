@@ -40,7 +40,7 @@ os.system('sudo systemctl start avahi-daemon')
 
 print('\n---Copying Runfiles---\n')
 os.system('rm -Rf /srv/chaprasan')
-os.system('mkdir /srv/chaprasan && cp ../Run/* /srv/chaprasan/ && chmod +x /srv/chaprasan/startup.py && chown root /srv/chaprasan')
+os.system('mkdir /srv/chaprasan && cp -r ../Run/* /srv/chaprasan/ && chmod +x /srv/chaprasan/startup.py && chown root /srv/chaprasan')
 
 print('\n---Installing Service---\n')
 
@@ -55,6 +55,3 @@ os.system('sudo systemctl restart chaprasan.service')
 
 print('\n---Installing Flask---\n')
 os.system('sudo apt install python-pip -y && sudo pip install Flask && sudo pip install requests')
-
-print('\n---Restarting---\n')
-os.system('sudo reboot')

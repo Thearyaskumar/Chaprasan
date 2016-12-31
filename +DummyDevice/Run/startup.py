@@ -19,7 +19,11 @@ checkForHub(0)
 my_location = subprocess.check_output('avahi-resolve-address ' + subprocess.check_output('hostname -I', shell=True).split()[0], shell=True).split()[1]
 
 print('Connecting to Hub...')
-r = requests.post("http://hub.local:5000/addDevice", data={'location': my_location, 'inputs': str(os.listdir("./inputs")),'outputs': str(os.listdir("./outputs"))})
+try:
+    r = requests.post("http://hub.local:5000/addDevice", data={'location': my_location, 'inputs': str(os.listdir("./inputs")),'outputs': str(os.listdir("./outputs"))})
+except Exception, e:
+    print('ERROR:' + str(e))
+    sys.exit(1)
 if r.status_code == 200:
     print('Starting Flask Server...')
 elif r.status_code == 406:
