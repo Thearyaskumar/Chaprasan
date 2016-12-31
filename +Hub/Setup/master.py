@@ -40,12 +40,12 @@ os.system('rm -Rf /srv/chaprasan')
 os.system('mkdir /srv/chaprasan && cp ../Run/* /srv/chaprasan/ && chmod +x /srv/chaprasan/startup.py && chown root /srv/chaprasan')
 
 print('\n---Installing Flask---\n')
-os.system('sudo apt install python-pip -y && sudo pip install Flask && sudo pip install requests')
+os.system('sudo apt install python-pip -y && sudo -H pip install Flask && sudo -H pip install requests')
 
 print('\n---Installing Service---\n')
 
 print('Copying the service file...')
-os.system('sudo cp ./chaprasan.service /etc/systemd/system/ && sudo chmod 0644 /etc/systemd/system/chaprasan.service')
+os.system('sudo cp ./chaprasan.service /etc/systemd/system/ && sudo chmod 0644 /etc/systemd/system/chaprasan.service && sudo ln -s /etc/systemd/system/chaprasan.service /etc/systemd/system/multi-user.target.wants/chaprasan.service')
 
 print('Enabling in systemd...')
 os.system('sudo systemctl enable chaprasan.service')
