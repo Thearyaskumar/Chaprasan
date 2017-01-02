@@ -5,3 +5,6 @@ Description=Chaprasan IOT Scripts
 WorkingDirectory=/srv/chaprasan
 ExecStart=/usr/bin/python /srv/chaprasan/startup.py
 User=root
+
+[Install]
+WantedBy=multi-user.target

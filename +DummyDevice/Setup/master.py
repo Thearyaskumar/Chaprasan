@@ -45,7 +45,7 @@ os.system('mkdir /srv/chaprasan && cp -r ../Run/* /srv/chaprasan/ && chmod +x /s
 print('\n---Installing Service---\n')
 
 print('Copying the service file...')
-os.system('sudo cp ./chaprasan.service /etc/systemd/system/ && sudo chmod 0644 /etc/systemd/system/chaprasan.service')
+os.system('sudo cp ./chaprasan.service /etc/systemd/system/ && sudo chmod 0644 /etc/systemd/system/chaprasan.service && sudo ln -s /etc/systemd/system/chaprasan.service /etc/systemd/system/multi-user.target.wants/chaprasan.service')
 
 print('Enabling in systemd...')
 os.system('sudo systemctl enable chaprasan.service')
