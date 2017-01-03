@@ -26,8 +26,6 @@ except Exception, e:
     sys.exit(1)
 if r.status_code == 200:
     print('Starting Flask Server...')
-elif r.status_code == 406:
-    print('Already connected to Hub!') #UPDATE INPUTS AND OUTPUTS HERE
 else:
     print('Some error occored: ' + str(r.status_code))
     sys.exit(1)

@@ -60,9 +60,9 @@ def add_device():
 	return('Successfully added device.')
     except Exception, e:
 	if 'UNIQUE constraint failed' in str(e):
-		db.execute('update devices set (inputs, outputs) values (?, ?) where (location) values (?)', [request.form['inputs'], request.form['outputs'], request.form['location']])
-		db.commit()
-	abort(500)
+	    db.execute('update devices set inputs=?, outputs=? where location=?', [request.form['inputs'], request.form['outputs'], request.form['location']])
+	    db.commit()
+	    return('Successfully updated device info')
 
 @app.route('/inputs', methods=['POST'])
 def change_input():
