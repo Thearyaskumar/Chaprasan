@@ -1,4 +1,4 @@
-import os, subprocess, sqlite3, requests
+import os, subprocess, sqlite3, requests, triggers
 from flask import Flask, request, session, g, abort, jsonify
 
 app = Flask(__name__)
@@ -73,3 +73,7 @@ def change_input():
 def change_output():
     r = requests.post("http://" + request.form['location'] + ":5000/outputs", data={'filename':request.form['filename']})
     return(r.text)
+
+@app.before_request
+def doTriggers():
+    triggers.run(request)
